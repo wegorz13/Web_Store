@@ -1,0 +1,23 @@
+.cartContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 70vh;
+  margin-top: 50px;
+}
+
+.cartProductBox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1200px;
+  gap: 20px;
+}
+
+.wholeCart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

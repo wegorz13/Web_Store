@@ -1,0 +1,76 @@
+.productShort {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  max-width: 70vw;
+}
+
+.productShortBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 380px;
+  margin-left: 10px;
+  flex-wrap: wrap;
+  border: 2px solid black;
+  text-decoration: none;
+  color: #000;
+  transition: 0.3s ease;
+  padding: 5px;
+  text-align: center;
+  background-color: white;
+}
+
+.productShortBox:hover {
+  text-decoration: none;
+  color: black;
+  background-color: lightgrey;
+}
+
+.productFullBox {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.productImgBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.productDescrBox {
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+  border-left: 2px solid black;
+  padding: 10px;
+}
+
+.inputBox {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.productInCartBox {
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+
+  border: 2px solid black;
+}
+
+.cartTitle {
+  height: 50px;
+  text-align: center;
+}

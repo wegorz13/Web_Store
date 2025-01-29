@@ -1,0 +1,53 @@
+#categoryContainer {
+  position: fixed;
+
+  top: 50px;
+  display: flex;
+  justify-content: top;
+  flex-direction: column;
+  background-color: white;
+  height: 100%;
+  border-right: 2px solid black;
+}
+
+.categoryBtn {
+  border-radius: 0;
+  border: none;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  background-color: white;
+  color: #000;
+  transition: 0.3s ease;
+  width: 100%;
+  margin-left: 0;
+}
+
+.categoryBtn:hover {
+  background-color: lightgrey;
+}
+#searchBox {
+  display: flex;
+}
+
+/* #productContainer,
+#searchBar {
+  margin-top: 20px;
+  margin-left: 37vw;
+} */
+
+#searchBar {
+  width: 100%;
+  text-align: left;
+}
+
+#realSearcher {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+  width: 400px;
+  max-width: 70vw;
+
+  margin-left: 40vw;
+}

@@ -1,0 +1,55 @@
+#nbContainer {
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  height: 48px;
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  width: 100vw;
+  border-bottom: 2px solid black;
+}
+
+#rightNb {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 10px;
+}
+
+#test {
+  background-color: red;
+  width: 100vw;
+}
+
+.navbarBtn {
+  font-size: 22px;
+  text-decoration: none;
+  margin: 10px;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: black;
+}
+
+#sklepik {
+  font-family: "Playwrite AU SA", serif;
+  font-size: 35px;
+}
+
+.logoutBtn {
+  border-radius: 0;
+  background-color: white;
+  color: #000;
+  font-size: 22px;
+  height: 40px;
+
+  padding: 0;
+  text-align: center;
+  justify-content: center;
+}
+
+.logoutBtn:hover {
+  background-color: white;
+  border-color: white;
+  color: blue;
+}

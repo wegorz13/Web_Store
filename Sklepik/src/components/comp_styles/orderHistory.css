@@ -1,0 +1,10 @@
+.historyBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.pastOrderBox {
+  width: 100%;
+}

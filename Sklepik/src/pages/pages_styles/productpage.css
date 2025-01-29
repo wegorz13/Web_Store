@@ -1,0 +1,63 @@
+.body {
+  background-color: lightgray;
+}
+
+.productFull {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 0;
+  width: 100vw;
+  background-color: white;
+  padding-bottom: 50px;
+}
+
+.opinionContainer {
+  margin-left: 50px;
+  margin-right: 50px;
+  padding-bottom: 50px;
+}
+
+input {
+  height: 40px;
+
+  text-align: center;
+  font-size: 15px;
+  background-color: white;
+  color: black;
+}
+
+.quantityInput {
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  font-size: 15px;
+  background-color: white;
+  color: black;
+}
+
+button {
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background-color: rgb(0, 20, 131);
+}
+
+.addOpinionBtn {
+  width: 45px;
+  height: 45px;
+  max-width: 50vw;
+  font-size: 30px;
+  padding: 0;
+  background-color: white;
+  border: 2px solid black;
+  margin-left: 10px;
+}
+
+.opinionText {
+  width: 500px;
+  margin-right: 10px;
+  text-align: left;
+}

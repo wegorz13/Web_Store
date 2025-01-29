@@ -1,0 +1,17 @@
+.orderSend {
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+  align-items: center;
+  justify-content: center;
+}
+
+.orderPage {
+  width: 100vw;
+}
+
+.orderForm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
