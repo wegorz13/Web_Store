@@ -14,7 +14,6 @@ function OpinionForm(props: { id: number }) {
   const id = props.id;
   const navigate = useNavigate();
 
-  // Use state for opinions, passed down from parent or fetched earlier
   const [opinions, setOpinions] = useState<Opinion[]>([]);
 
   useEffect(() => {
@@ -27,14 +26,12 @@ function OpinionForm(props: { id: number }) {
       })
       .catch((error) => console.error("Error validating opinion:", error));
 
-    // Initial fetch to get existing opinions for the product
     fetch(`/api/opinions/${id}`)
       .then((response) => response.json())
       .then((data) => {
-        // Preprocess the username to extract part before '@'
         const processedOpinions = data.map((opinion: Opinion) => ({
           ...opinion,
-          username: opinion.username.split("@")[0], // Extract part before '@'
+          username: opinion.username.split("@")[0],
         }));
         setOpinions(processedOpinions);
       })
@@ -53,7 +50,7 @@ function OpinionForm(props: { id: number }) {
   }, [id, auth.id, opinions]);
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault(); // Prevent page reload
+    e.preventDefault();
 
     if (newOpinion && rating) {
       try {
@@ -73,19 +70,15 @@ function OpinionForm(props: { id: number }) {
         });
 
         if (response.ok) {
-          // Get the new opinion from the response (assuming it's returned)
           const newOpinionData = await response.json();
 
-          // Preprocess the username to extract part before '@'
           const processedNewOpinion = {
             ...newOpinionData,
-            username: newOpinionData.email.split("@")[0], // Extract part before '@'
+            username: newOpinionData.email.split("@")[0],
           };
 
-          // Update the opinions state with the new opinion added
           setOpinions((prevOpinions) => [...prevOpinions, processedNewOpinion]);
 
-          // Optionally reset the input fields
           setNewOpinion("");
           setRating(5);
         }
@@ -103,7 +96,12 @@ function OpinionForm(props: { id: number }) {
       <div className="opinionContainer">
         <h3>Opinions</h3>
         {opinions.map((opinion) => (
-          <UserOpinion opinion={opinion} />
+          <UserOpinion
+            opinion={opinion}
+            onDelete={(id) =>
+              setOpinions(opinions.filter((op) => op.opinion_id !== id))
+            }
+          />
         ))}
         {canAddOpinion ? (
           <form className="formp" onSubmit={handleSubmit}>

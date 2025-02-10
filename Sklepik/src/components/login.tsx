@@ -44,10 +44,10 @@ function Login() {
         if (response.ok) {
           setMessage("Użytkownik zalogowany pomyślnie");
           const accessToken = data?.accessToken;
-
+          const role = data?.role;
           const id = data?.id;
-          setAuth({ id, email, password, accessToken });
-          console.log({ id, email, password, accessToken });
+          setAuth({ id, email, password, accessToken, role });
+          console.log({ id, email, password, accessToken, role });
           console.log(data.accessToken);
           navigate("/");
         }

@@ -112,6 +112,7 @@ router.get("/login", (req: Request, res: Response) => {
                 res.json({
                   accessToken,
                   id: user.user_id,
+                  role: user.role,
                 });
               }
             );

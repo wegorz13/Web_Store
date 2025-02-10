@@ -11,10 +11,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 380px;
+  width: 330px;
+  height: 330px;
   margin-left: 10px;
   flex-wrap: wrap;
   border: 2px solid black;
+  box-shadow: 3px 3px 5px grey;
+  border-radius: 10%;
   text-decoration: none;
   color: #000;
   transition: 0.3s ease;

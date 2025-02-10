@@ -172,7 +172,7 @@ function Order() {
         ></input>
         <Link to="/order/history">
           <button type="submit" onClick={handleSubmit}>
-            Zamów
+            Order
           </button>
         </Link>
       </form>

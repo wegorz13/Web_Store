@@ -52,7 +52,6 @@ router.get("/validate", (req: Request, res: Response) => {
 
       console.log("Order query results:", orderRows);
 
-      // If no orders are found, user cannot add an opinion
       if (!orderRows || orderRows.length === 0) {
         db.close();
         res.send({
@@ -89,7 +88,7 @@ router.get("/validate", (req: Request, res: Response) => {
 
           db.close();
           res.send({
-            validation: !opinionRow, // If no opinion exists, validation is true
+            validation: !opinionRow,
           });
           return;
         }
@@ -102,7 +101,7 @@ router.get("/:product_id", (req: Request, res: Response) => {
   const { product_id } = req.params;
   const db = connect();
   db.all(
-    "SELECT opinion_id, product_id, email as username, content, rating FROM opinions JOIN users ON opinions.user_id=users.user_id WHERE product_id = ?",
+    "SELECT opinion_id, product_id, email as username, opinions.user_id, content, rating FROM opinions JOIN users ON opinions.user_id=users.user_id WHERE product_id = ?",
     [product_id],
     (err, rows) => {
       if (err) {
@@ -164,20 +163,44 @@ router.post("/", verifyJWT, (req: Request, res: Response) => {
             return;
           }
 
-          // Send back the full opinion with the username (extracted from the email)
           const fullOpinion = {
             id: row.id,
             product_id: row.product_id,
             user_id: row.user_id,
             content: row.content,
             rating: row.rating,
-            email: row.email.split("@")[0], // Extract part before '@' for the username
+            email: row.email.split("@")[0],
           };
 
-          // Return the opinion data as part of the response
           res.json(fullOpinion);
         }
       );
+    }
+  );
+
+  db.close();
+});
+
+router.delete("/:opinion_id", verifyJWT, (req: Request, res: Response) => {
+  const { opinion_id } = req.params;
+  const db = connect();
+
+  db.run(
+    "DELETE FROM opinions WHERE opinion_id = ?",
+    [opinion_id],
+    function (err) {
+      if (err) {
+        console.error("Error deleting opinion:", err);
+        res.status(500).send({ message: "Error deleting opinion" });
+        return;
+      }
+
+      if (this.changes === 0) {
+        res.status(404).send({ message: "Opinion not found" });
+        return;
+      }
+
+      res.json({ message: "Opinion deleted successfully" });
     }
   );
 

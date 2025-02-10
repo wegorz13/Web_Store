@@ -8,3 +8,9 @@ form {
   align-items: center;
   justify-content: center;
 }
+
+.bodyf {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
