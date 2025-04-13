@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { Order } from "../components/order";
 import { Navbar } from "../components/navbar";
 import { useNavigate } from "react-router-dom";
@@ -9,7 +9,7 @@ function OrderPage() {
   const { auth } = useAuth();
   useEffect(() => {
     if (!auth?.accessToken) {
-      navigate("/"); // Redirect to login if no accessToken
+      navigate("/");
     }
   }, [auth, navigate]);
   return (

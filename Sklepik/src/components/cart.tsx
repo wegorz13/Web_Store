@@ -39,22 +39,19 @@ function Cart() {
       userId: 0,
       userProducts: [],
     };
-    // Initialize userCart state from props on component mount
+
     setUserCart(cart);
   }, [carts, auth.id]);
 
   useEffect(() => {
     async function fetchCartProducts() {
       if (!userCart || userCart.userProducts.length === 0) {
-        setProducts([]); // Clear products if the cart is empty
+        setProducts([]);
         return;
       }
 
       try {
-        // Extract product IDs from userCart
         const productIds = userCart.userProducts.map((item) => item.productId);
-
-        // Fetch products from the server using a query parameter
 
         const response = await fetch(
           `/api/products/cart?ids=${productIds.join(",")}`,
@@ -98,7 +95,7 @@ function Cart() {
                     product={product}
                     quantity={cartElement.quantity}
                     userCart={userCart}
-                    setUserCart={setUserCart} // Pass the state updater
+                    setUserCart={setUserCart}
                   />
                 );
               }

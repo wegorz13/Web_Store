@@ -28,7 +28,6 @@ function ProductFull(props: { product: Product }) {
       (cart) => cart.userId === auth.id
     );
     if (!cart) {
-      // If no cart exists for the user, create a new one
       cart = {
         userId: auth.id,
         userProducts: [],
@@ -113,10 +112,8 @@ function ProductInCart(props: {
   const { product, quantity, userCart, setUserCart } = props;
 
   const removeFromCart = () => {
-    // Create a new cart object
     const updatedUserCart: UserCart = { ...userCart };
 
-    // Find the product in the cart
     const productIndex = updatedUserCart.userProducts.findIndex(
       (item) => item.productId === product.id
     );
@@ -126,12 +123,10 @@ function ProductInCart(props: {
       productInCart.quantity -= 1;
 
       if (productInCart.quantity <= 0) {
-        // Remove product from cart
         updatedUserCart.userProducts.splice(productIndex, 1);
       }
     }
 
-    // Save updated cart to local storage
     const stringifiedCarts: string = localStorage.getItem("carts") || "[]";
     const carts: UserCart[] = JSON.parse(stringifiedCarts);
 
@@ -141,7 +136,6 @@ function ProductInCart(props: {
 
     localStorage.setItem("carts", JSON.stringify(updatedCarts));
 
-    // Update the cart state in the parent
     setUserCart(updatedUserCart);
   };
 

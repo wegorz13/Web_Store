@@ -82,13 +82,10 @@ function Order() {
     const { street, city, postalCode } = address;
 
     if (street && city && postalCode) {
-      // Regex for street: e.g., "Main St 123"
       const streetRegex = /^[A-Za-z\s]+\s\d+$/;
 
-      // Regex for city: only letters
       const cityRegex = /^[A-Za-z\s]+$/;
 
-      // Regex for postal code: format "xx-xxx"
       const postalCodeRegex = /^\d{2}-\d{3}$/;
 
       if (!streetRegex.test(street)) {

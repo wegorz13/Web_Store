@@ -34,7 +34,7 @@ function OrderHistory() {
 
   useEffect(() => {
     async function fetchOrders() {
-      const userId = auth.id; // Example user ID
+      const userId = auth.id;
 
       if (!userId) {
         return;
@@ -50,7 +50,6 @@ function OrderHistory() {
         const rawData = await response.json();
 
         if (response.ok) {
-          // rekord do zweryfikowania
           const orderMap: Record<number, Order> = {};
 
           rawData.forEach((row: any) => {
@@ -79,7 +78,7 @@ function OrderHistory() {
             });
           });
 
-          setOrders(Object.values(orderMap)); // Convert map to array
+          setOrders(Object.values(orderMap));
         } else {
           console.error("Failed to fetch order history:", rawData.message);
         }

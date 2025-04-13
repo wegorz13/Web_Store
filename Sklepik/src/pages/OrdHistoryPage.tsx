@@ -10,7 +10,7 @@ function OrdHistoryPage() {
   const { auth } = useAuth();
   useEffect(() => {
     if (!auth?.accessToken) {
-      navigate("/"); // Redirect to login if no accessToken
+      navigate("/");
     }
   }, [auth, navigate]);
 

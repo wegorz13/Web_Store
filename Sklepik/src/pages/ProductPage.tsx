@@ -1,7 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { ProductFull } from "../components/product";
-import { UserOpinion } from "../components/opinion";
 import { Navbar } from "../components/navbar";
 import "./pages_styles/productpage.css";
 import { OpinionForm } from "../components/opinionForm";
