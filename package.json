@@ -1,8 +1,0 @@
-{
-  "devDependencies": {
-    "vite": "^6.0.6"
-  },
-  "dependencies": {
-    "bcrypt": "^5.1.1"
-  }
-}
